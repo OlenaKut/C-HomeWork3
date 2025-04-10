@@ -1,10 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Vehicle.SubClasses;
 
 
 namespace Vehicle;
 
-public class Vehicle
+public abstract class Vehicle
 {
     private string brand = string.Empty;
     private string model = string.Empty;
@@ -63,5 +68,9 @@ public class Vehicle
     {
         return $"Brand: {Brand}, Model: {Model}, Year: {Year}, Weight: {Weight}kg";
     }
+
+
+    public abstract string StartEngine();
+    public abstract string Stats();
 
 }

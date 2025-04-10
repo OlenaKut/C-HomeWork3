@@ -1,23 +1,36 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Vehicle;
 public class VehicleHandler
 {
     private List<Vehicle> vehicles = new List<Vehicle>();
 
-    public Vehicle CreateVehicle(string brand, string model, int year, double weight)
+    public void AddVehicle(Vehicle vehicle)
     {
-        var vehicle = new Vehicle
-        {
-            Brand = brand,
-            Model = model,
-            Year = year,
-            Weight = weight
-        };
         vehicles.Add(vehicle);
-        return vehicle;
     }
+
+    public void ListAll()
+    {
+        foreach (var v in vehicles)
+        {
+            Console.WriteLine(v.Stats());
+            Console.WriteLine(v.StartEngine());
+
+            if (v is ICleanable cleanable)
+            {
+                cleanable.Clean();
+            }
+            Console.WriteLine(new string('-', 40));
+        }
+
+    }
+
+
 
     public void UpdateVehicle(Vehicle vehicle, string? brand = null, string? model = null, int? year = null, double? weight = null)
     {
@@ -27,17 +40,4 @@ public class VehicleHandler
         if (weight.HasValue) vehicle.Weight = weight.Value;
     }
 
-    public void ListVehicles()
-    {
-        if (vehicles.Count == 0)
-        {
-            Console.WriteLine("No vehicles registered.");
-            return;
-        }
-
-        foreach (var v in vehicles)
-        {
-            Console.WriteLine(v);
-        }
-    }
 }

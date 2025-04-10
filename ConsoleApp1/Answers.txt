@@ -1,0 +1,27 @@
+F: Vad händer om du försöker lägga till en Car i en lista av Motorcycle?
+
+public class TryErrors
+{
+     public static void TryError()
+    {
+        List<Motorcycle> motorcycles = new List<Motorcycle>();
+        Motorcycle myCar = new Car(); - Denna rad kommer att orsaka ett fel {error CS0029: Cannot implicitly convert type 'Vehicle.SubClasses.Car' to 'Vehicle.SubClasses.Motorcycle'}
+                                        Vi kan inte tilldela en Car till en lista med Motorcycle eftersom de är olika typer.
+        motorcycles.Add(myCar);
+    }
+}
+
+ F: Vilken typ bör en lista vara för att rymma alla fordonstyper?
+ List<Vehicle> eftersom Vehicle är basklassen för alla fordon.
+ Detta gör det möjligt att lagra alla typer av fordon i samma lista.
+
+
+F: Kommer du åt metoden Clean() från en lista med typen List<Vehicle>?
+Nej, eftersom Clean() är en metod i ICleanable-gränssnittet och inte i Vehicle-klassen. 
+Det är bara subklasser Car och Truck som implementerar ICleanable.
+
+
+F: Vad är fördelarna med att använda ett interface här istället för arv?
+1. En klass kan implementera flera interfaces.
+2. Endast de klasser som behöver Clean() implementerar det.
+3. Det ger mer flexibilitet och gör koden mer modulär.

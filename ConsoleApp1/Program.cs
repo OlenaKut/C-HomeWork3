@@ -19,6 +19,7 @@ class Program
         try
         {
             var car = new Car { Brand = "Volvo", Model = "S60", Year = 2021, Weight = 1500, NumberOfDoors = 4 };
+            var car1 = new Car { Brand = "BMW", Model = "TTT", Year = 2012, Weight = 1700, NumberOfDoors = 5 };
             var truck = new Truck { Brand = "Scania", Model = "XTT", Year = 2019, Weight = 7000, CargoCapacity = 12000 };
             var bike = new Motorcycle { Brand = "Harley", Model = "Street 750", Year = 2018, Weight = 220, HasSidecar = false };
             var scooter = new ElectricScooter { Brand = "Xiaomi", Model = "Mi Electric", Year = 2022, Weight = 13, BatteryRange = 30 };
@@ -52,8 +53,5 @@ class Program
     public class VehicleSystemError : SystemError
     {
     }
-
-
-
 
 }
